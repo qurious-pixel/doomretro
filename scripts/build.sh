@@ -32,22 +32,22 @@ if [ "$arg1" == "clean" ]; then
   rm -rf build
 fi
 
-export CC=/usr/bin/gcc
-export CXX=/usr/bin/g++
+export CC=${CC}
+export CXX=${CXX}
 mkdir -p build
 cd build
 cmake -DCMAKE_INSTALL_PREFIX:PATH=/usr -DCMAKE_BUILD_TYPE=Release ..
 make -j8 VERBOSE=1
 cd -
 
-if [ "$arg1" == "clean" ]; then
-  rm -rf build
-fi
+#if [ "$arg1" == "clean" ]; then
+#  rm -rf build
+#fi
 
-export CC=/usr/bin/clang
-export CXX=/usr/bin/clang++
-mkdir -p build
-cd build
-cmake -DCMAKE_INSTALL_PREFIX:PATH=/usr -DCMAKE_BUILD_TYPE=Release ..
-make -j8 VERBOSE=1
-cd -
+#export CC=/usr/bin/clang
+#export CXX=/usr/bin/clang++
+#mkdir -p build
+#cd build
+#cmake -DCMAKE_INSTALL_PREFIX:PATH=/usr -DCMAKE_BUILD_TYPE=Release ..
+#make -j8 VERBOSE=1
+#cd -
