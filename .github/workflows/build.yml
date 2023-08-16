@@ -57,3 +57,6 @@ jobs:
       - uses: actions/checkout@v1
       - name: build_and_test
         run: scripts/build.sh clean
+        env:
+          CC: ${ matrix.CC }
+          CXX: ${ matrix.CXX }
