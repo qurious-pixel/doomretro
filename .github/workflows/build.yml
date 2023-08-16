@@ -54,9 +54,15 @@ jobs:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v3
       - name: build_and_test
         run: scripts/build.sh clean
         env:
-          CC: ${ matrix.CC }
-          CXX: ${ matrix.CXX }
+          CC: ${{ matrix.CC }}
+          CXX: ${{ matrix.CXX }}
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: doomretro-${ matrix.CC }
+          path: build
